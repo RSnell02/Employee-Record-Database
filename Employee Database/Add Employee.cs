@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace Employee_Database
 {
-    public partial class Add_Employee : Form
+    public partial class frmAddEmp : Form
     {
-        public Add_Employee()
+        public frmAddEmp()
         {
             InitializeComponent();
         }
-    }
-}
+
+        // Returns to tha Main Menu
+        private void btnMain_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmMain main = new frmMain();
+            main.ShowDialog();
+        }   // End btnMain_Click
+    }   // End Class
+}   // End Namespace

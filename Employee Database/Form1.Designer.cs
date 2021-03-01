@@ -1,7 +1,7 @@
 ﻿
 namespace Employee_Database
 {
-    partial class Form1
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Employee_Database
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.btnAddEmp = new System.Windows.Forms.Button();
             this.btnSearchEmp = new System.Windows.Forms.Button();
             this.btnDelModEmp = new System.Windows.Forms.Button();
@@ -100,7 +100,7 @@ namespace Employee_Database
             this.pictureBox2.TabIndex = 6;
             this.pictureBox2.TabStop = false;
             // 
-            // Form1
+            // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -111,8 +111,8 @@ namespace Employee_Database
             this.Controls.Add(this.btnDelModEmp);
             this.Controls.Add(this.btnSearchEmp);
             this.Controls.Add(this.btnAddEmp);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "frmMain";
+            this.Text = "Main Menu";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

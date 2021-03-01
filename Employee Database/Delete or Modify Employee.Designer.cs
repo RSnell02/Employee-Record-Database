@@ -1,7 +1,7 @@
 ﻿
 namespace Employee_Database
 {
-    partial class Delete_or_Modify_Employee
+    partial class frmDelModEmp
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,34 @@ namespace Employee_Database
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btnMain = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnMain
+            // 
+            this.btnMain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMain.Location = new System.Drawing.Point(616, 366);
+            this.btnMain.Name = "btnMain";
+            this.btnMain.Size = new System.Drawing.Size(134, 54);
+            this.btnMain.TabIndex = 0;
+            this.btnMain.Text = "Return to Main";
+            this.btnMain.UseVisualStyleBackColor = true;
+            this.btnMain.Click += new System.EventHandler(this.btnMain_Click);
+            // 
+            // frmDelModEmp
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Delete_or_Modify_Employee";
+            this.Controls.Add(this.btnMain);
+            this.Name = "frmDelModEmp";
+            this.Text = "Delete/Modify Employee";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnMain;
     }
 }

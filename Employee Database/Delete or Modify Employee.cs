@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace Employee_Database
 {
-    public partial class Delete_or_Modify_Employee : Form
+    public partial class frmDelModEmp : Form
     {
-        public Delete_or_Modify_Employee()
+        public frmDelModEmp()
         {
             InitializeComponent();
         }
-    }
-}
+
+        // Returns to the Main Menu
+        private void btnMain_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmMain main = new frmMain();
+            main.ShowDialog();
+        }   // End btnMain_Click
+    }   // End Class
+}   // End Namespace

@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace Employee_Database
 {
-    public partial class Search_Employee : Form
+    public partial class frmSearchEmp : Form
     {
-        public Search_Employee()
+        public frmSearchEmp()
         {
             InitializeComponent();
         }
-    }
-}
+
+        // Returns to the Main Menu
+        private void btnMain_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmMain main = new frmMain();
+            main.ShowDialog();
+        }   // End btnMain_Click
+    }   // End class
+}   // End Namespace
