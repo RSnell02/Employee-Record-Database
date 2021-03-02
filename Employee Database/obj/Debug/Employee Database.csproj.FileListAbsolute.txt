@@ -1,0 +1,16 @@
+C:\Users\The Duke\Documents\Projects\Employee Database\Employee Database\obj\Debug\Employee Database.csprojAssemblyReference.cache
+C:\Users\The Duke\Documents\Projects\Employee Database\Employee Database\obj\Debug\Employee_Database.frmAddEmp.resources
+C:\Users\The Duke\Documents\Projects\Employee Database\Employee Database\obj\Debug\Employee_Database.frmDelModEmp.resources
+C:\Users\The Duke\Documents\Projects\Employee Database\Employee Database\obj\Debug\Employee_Database.frmMain.resources
+C:\Users\The Duke\Documents\Projects\Employee Database\Employee Database\obj\Debug\Employee_Database.frmHelp.resources
+C:\Users\The Duke\Documents\Projects\Employee Database\Employee Database\obj\Debug\Employee_Database.Properties.Resources.resources
+C:\Users\The Duke\Documents\Projects\Employee Database\Employee Database\obj\Debug\Employee_Database.frmSearchEmp.resources
+C:\Users\The Duke\Documents\Projects\Employee Database\Employee Database\obj\Debug\Employee Database.csproj.GenerateResource.cache
+C:\Users\The Duke\Documents\Projects\Employee Database\Employee Database\obj\Debug\Employee Database.csproj.CoreCompileInputs.cache
+C:\Users\The Duke\Documents\Projects\Employee Database\Employee Database\bin\Debug\Database1.mdf
+C:\Users\The Duke\Documents\Projects\Employee Database\Employee Database\bin\Debug\Database1_log.ldf
+C:\Users\The Duke\Documents\Projects\Employee Database\Employee Database\bin\Debug\Employee Database.exe.config
+C:\Users\The Duke\Documents\Projects\Employee Database\Employee Database\bin\Debug\Employee Database.exe
+C:\Users\The Duke\Documents\Projects\Employee Database\Employee Database\bin\Debug\Employee Database.pdb
+C:\Users\The Duke\Documents\Projects\Employee Database\Employee Database\obj\Debug\Employee Database.exe
+C:\Users\The Duke\Documents\Projects\Employee Database\Employee Database\obj\Debug\Employee Database.pdb

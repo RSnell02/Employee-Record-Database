@@ -29,6 +29,7 @@ namespace Employee_Database
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnMain = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,7 +39,19 @@ namespace Employee_Database
             this.txtFName = new System.Windows.Forms.TextBox();
             this.txtLName = new System.Windows.Forms.TextBox();
             this.txtEmpID = new System.Windows.Forms.TextBox();
+            this.database1DataSet1 = new Employee_Database.Database1DataSet1();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.employeeTableAdapter = new Employee_Database.Database1DataSet1TableAdapters.EmployeeTableAdapter();
+            this.tableAdapterManager = new Employee_Database.Database1DataSet1TableAdapters.TableAdapterManager();
+            this.empIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empFNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empLNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empCityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empPhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnMain
@@ -91,7 +104,16 @@ namespace Employee_Database
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.empIDDataGridViewTextBoxColumn,
+            this.empFNameDataGridViewTextBoxColumn,
+            this.empLNameDataGridViewTextBoxColumn,
+            this.empAddressDataGridViewTextBoxColumn,
+            this.empCityDataGridViewTextBoxColumn,
+            this.empPhoneDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.employeeBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(286, 6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(399, 208);
@@ -118,6 +140,62 @@ namespace Employee_Database
             this.txtEmpID.Size = new System.Drawing.Size(100, 20);
             this.txtEmpID.TabIndex = 8;
             // 
+            // database1DataSet1
+            // 
+            this.database1DataSet1.DataSetName = "Database1DataSet1";
+            this.database1DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.database1DataSet1;
+            // 
+            // employeeTableAdapter
+            // 
+            this.employeeTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.EmployeeTableAdapter = this.employeeTableAdapter;
+            this.tableAdapterManager.UpdateOrder = Employee_Database.Database1DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // empIDDataGridViewTextBoxColumn
+            // 
+            this.empIDDataGridViewTextBoxColumn.DataPropertyName = "EmpID";
+            this.empIDDataGridViewTextBoxColumn.HeaderText = "EmpID";
+            this.empIDDataGridViewTextBoxColumn.Name = "empIDDataGridViewTextBoxColumn";
+            // 
+            // empFNameDataGridViewTextBoxColumn
+            // 
+            this.empFNameDataGridViewTextBoxColumn.DataPropertyName = "EmpFName";
+            this.empFNameDataGridViewTextBoxColumn.HeaderText = "EmpFName";
+            this.empFNameDataGridViewTextBoxColumn.Name = "empFNameDataGridViewTextBoxColumn";
+            // 
+            // empLNameDataGridViewTextBoxColumn
+            // 
+            this.empLNameDataGridViewTextBoxColumn.DataPropertyName = "EmpLName";
+            this.empLNameDataGridViewTextBoxColumn.HeaderText = "EmpLName";
+            this.empLNameDataGridViewTextBoxColumn.Name = "empLNameDataGridViewTextBoxColumn";
+            // 
+            // empAddressDataGridViewTextBoxColumn
+            // 
+            this.empAddressDataGridViewTextBoxColumn.DataPropertyName = "EmpAddress";
+            this.empAddressDataGridViewTextBoxColumn.HeaderText = "EmpAddress";
+            this.empAddressDataGridViewTextBoxColumn.Name = "empAddressDataGridViewTextBoxColumn";
+            // 
+            // empCityDataGridViewTextBoxColumn
+            // 
+            this.empCityDataGridViewTextBoxColumn.DataPropertyName = "EmpCity";
+            this.empCityDataGridViewTextBoxColumn.HeaderText = "EmpCity";
+            this.empCityDataGridViewTextBoxColumn.Name = "empCityDataGridViewTextBoxColumn";
+            // 
+            // empPhoneDataGridViewTextBoxColumn
+            // 
+            this.empPhoneDataGridViewTextBoxColumn.DataPropertyName = "EmpPhone";
+            this.empPhoneDataGridViewTextBoxColumn.HeaderText = "EmpPhone";
+            this.empPhoneDataGridViewTextBoxColumn.Name = "empPhoneDataGridViewTextBoxColumn";
+            // 
             // frmSearchEmp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -134,7 +212,10 @@ namespace Employee_Database
             this.Controls.Add(this.btnMain);
             this.Name = "frmSearchEmp";
             this.Text = "Search Employee";
+            this.Load += new System.EventHandler(this.frmSearchEmp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,5 +232,15 @@ namespace Employee_Database
         private System.Windows.Forms.TextBox txtFName;
         private System.Windows.Forms.TextBox txtLName;
         private System.Windows.Forms.TextBox txtEmpID;
+        private Database1DataSet1 database1DataSet1;
+        private System.Windows.Forms.BindingSource employeeBindingSource;
+        private Database1DataSet1TableAdapters.EmployeeTableAdapter employeeTableAdapter;
+        private Database1DataSet1TableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.DataGridViewTextBoxColumn empIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn empFNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn empLNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn empAddressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn empCityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn empPhoneDataGridViewTextBoxColumn;
     }
 }

@@ -24,5 +24,12 @@ namespace Employee_Database
             frmMain main = new frmMain();
             main.ShowDialog();
         }   // End btnMain_Click
+
+        private void frmAddEmp_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'database1DataSet1.Employee' table. You can move, or remove it, as needed.
+            this.employeeTableAdapter.Fill(this.database1DataSet1.Employee);
+
+        }
     }   // End Class
 }   // End Namespace
