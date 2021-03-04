@@ -117,4 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>To add a new employee, go to the Add Employee menu and fill out the information.
+
+To modify or delete an employee's data out of the database, you can delete just by entering the Employee ID. 
+You can also modify an employee's address or phone number in the corresponding text boxes.
+
+To search for an employee's data, you can either search by name or employee ID in the corresponding text boxes.</value>
+  </data>
 </root>
