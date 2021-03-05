@@ -7,11 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Employee_Database
 {
     public partial class frmAddEmp : Form
     {
+        SqlConnection con = new SqlConnection("Data Source=.; Initial Catalog = Employee; Integrated Security = true;");
+        SqlCommand cmd;
+        SqlDataAdapter adapt;
+        //ID variable used in Updating and Deleting Record
+        int ID = 0;
         public frmAddEmp()
         {
             InitializeComponent();
@@ -29,7 +35,52 @@ namespace Employee_Database
         {
             // TODO: This line of code loads data into the 'database1DataSet1.Employee' table. You can move, or remove it, as needed.
             this.employeeTableAdapter.Fill(this.database1DataSet1.Employee);
+        }   // End frmAddEmp_Load
 
+        // Display Data in DataGridView
+        private void DisplayData()
+        {
+            con.Open();
+            DataTable dt = new DataTable();
+            adapt = new SqlDataAdapter("Select * from Employee", con);
+            adapt.Fill(dt);
+            dataGridView1.DataSource = dt;
+            con.Close();
+        }   // End DisplayData
+
+        // Clear Data
+        private void ClearData()
+        {
+            txtEmpFName.Text = "";
+            txtEmpLName.Text = "";
+            txtEmpPhone.Text = "";
+            txtEmpAddress.Text = "";
+            txtEmpCity.Text = "";
+            ID = 0;
+        }
+
+        // Add new employee data
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (txtEmpFName.Text != "" && txtEmpLName.Text != "" && txtEmpAddress.Text != "" && txtEmpAddress.Text != "" && txtEmpPhone.Text != "")
+            {
+                cmd = new SqlCommand("Insert into Employee values(@EmpFName, @EmpLName, @EmpAddress, @EmpCity, @EmpPhone", con);
+                con.Open();
+                cmd.Parameters.AddWithValue("@EmpFName", txtEmpFName.Text);
+                cmd.Parameters.AddWithValue("@EmpLName", txtEmpLName.Text);
+                cmd.Parameters.AddWithValue("@EmpAddress", txtEmpAddress.Text);
+                cmd.Parameters.AddWithValue("@EmpCity", txtEmpCity.Text);
+                cmd.Parameters.AddWithValue("@EmpPhone", txtEmpPhone.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Employee record added successfully");
+                DisplayData();
+                ClearData();
+            }   // End if
+            else
+            {
+                MessageBox.Show("Please Provice Details!");
+            }
         }
     }   // End Class
 }   // End Namespace

@@ -33,6 +33,14 @@ namespace Employee_Database
             this.btnMain = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.empIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empFNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empLNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empCityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empPhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.database1DataSet1 = new Employee_Database.Database1DataSet1();
             this.txtEmpID = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -47,18 +55,10 @@ namespace Employee_Database
             this.txtEmpAddress = new System.Windows.Forms.TextBox();
             this.txtEmpCity = new System.Windows.Forms.TextBox();
             this.txtEmpPhone = new System.Windows.Forms.TextBox();
-            this.database1DataSet1 = new Employee_Database.Database1DataSet1();
-            this.employeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.employeeTableAdapter = new Employee_Database.Database1DataSet1TableAdapters.EmployeeTableAdapter();
-            this.empIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.empFNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.empLNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.empAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.empCityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.empPhoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnMain
@@ -98,6 +98,52 @@ namespace Employee_Database
             this.dataGridView1.Size = new System.Drawing.Size(644, 236);
             this.dataGridView1.TabIndex = 2;
             // 
+            // empIDDataGridViewTextBoxColumn
+            // 
+            this.empIDDataGridViewTextBoxColumn.DataPropertyName = "EmpID";
+            this.empIDDataGridViewTextBoxColumn.HeaderText = "EmpID";
+            this.empIDDataGridViewTextBoxColumn.Name = "empIDDataGridViewTextBoxColumn";
+            // 
+            // empFNameDataGridViewTextBoxColumn
+            // 
+            this.empFNameDataGridViewTextBoxColumn.DataPropertyName = "EmpFName";
+            this.empFNameDataGridViewTextBoxColumn.HeaderText = "EmpFName";
+            this.empFNameDataGridViewTextBoxColumn.Name = "empFNameDataGridViewTextBoxColumn";
+            // 
+            // empLNameDataGridViewTextBoxColumn
+            // 
+            this.empLNameDataGridViewTextBoxColumn.DataPropertyName = "EmpLName";
+            this.empLNameDataGridViewTextBoxColumn.HeaderText = "EmpLName";
+            this.empLNameDataGridViewTextBoxColumn.Name = "empLNameDataGridViewTextBoxColumn";
+            // 
+            // empAddressDataGridViewTextBoxColumn
+            // 
+            this.empAddressDataGridViewTextBoxColumn.DataPropertyName = "EmpAddress";
+            this.empAddressDataGridViewTextBoxColumn.HeaderText = "EmpAddress";
+            this.empAddressDataGridViewTextBoxColumn.Name = "empAddressDataGridViewTextBoxColumn";
+            // 
+            // empCityDataGridViewTextBoxColumn
+            // 
+            this.empCityDataGridViewTextBoxColumn.DataPropertyName = "EmpCity";
+            this.empCityDataGridViewTextBoxColumn.HeaderText = "EmpCity";
+            this.empCityDataGridViewTextBoxColumn.Name = "empCityDataGridViewTextBoxColumn";
+            // 
+            // empPhoneDataGridViewTextBoxColumn
+            // 
+            this.empPhoneDataGridViewTextBoxColumn.DataPropertyName = "EmpPhone";
+            this.empPhoneDataGridViewTextBoxColumn.HeaderText = "EmpPhone";
+            this.empPhoneDataGridViewTextBoxColumn.Name = "empPhoneDataGridViewTextBoxColumn";
+            // 
+            // employeeBindingSource
+            // 
+            this.employeeBindingSource.DataMember = "Employee";
+            this.employeeBindingSource.DataSource = this.database1DataSet1;
+            // 
+            // database1DataSet1
+            // 
+            this.database1DataSet1.DataSetName = "Database1DataSet1";
+            this.database1DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // txtEmpID
             // 
             this.txtEmpID.Location = new System.Drawing.Point(115, 40);
@@ -108,22 +154,24 @@ namespace Employee_Database
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(75, 301);
+            this.btnDelete.Location = new System.Drawing.Point(128, 251);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(87, 35);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(31, 251);
+            this.btnUpdate.Location = new System.Drawing.Point(30, 251);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(184, 35);
+            this.btnUpdate.Size = new System.Drawing.Size(87, 35);
             this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnRefresh
             // 
@@ -215,55 +263,9 @@ namespace Employee_Database
             this.txtEmpPhone.Size = new System.Drawing.Size(100, 20);
             this.txtEmpPhone.TabIndex = 16;
             // 
-            // database1DataSet1
-            // 
-            this.database1DataSet1.DataSetName = "Database1DataSet1";
-            this.database1DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // employeeBindingSource
-            // 
-            this.employeeBindingSource.DataMember = "Employee";
-            this.employeeBindingSource.DataSource = this.database1DataSet1;
-            // 
             // employeeTableAdapter
             // 
             this.employeeTableAdapter.ClearBeforeFill = true;
-            // 
-            // empIDDataGridViewTextBoxColumn
-            // 
-            this.empIDDataGridViewTextBoxColumn.DataPropertyName = "EmpID";
-            this.empIDDataGridViewTextBoxColumn.HeaderText = "EmpID";
-            this.empIDDataGridViewTextBoxColumn.Name = "empIDDataGridViewTextBoxColumn";
-            // 
-            // empFNameDataGridViewTextBoxColumn
-            // 
-            this.empFNameDataGridViewTextBoxColumn.DataPropertyName = "EmpFName";
-            this.empFNameDataGridViewTextBoxColumn.HeaderText = "EmpFName";
-            this.empFNameDataGridViewTextBoxColumn.Name = "empFNameDataGridViewTextBoxColumn";
-            // 
-            // empLNameDataGridViewTextBoxColumn
-            // 
-            this.empLNameDataGridViewTextBoxColumn.DataPropertyName = "EmpLName";
-            this.empLNameDataGridViewTextBoxColumn.HeaderText = "EmpLName";
-            this.empLNameDataGridViewTextBoxColumn.Name = "empLNameDataGridViewTextBoxColumn";
-            // 
-            // empAddressDataGridViewTextBoxColumn
-            // 
-            this.empAddressDataGridViewTextBoxColumn.DataPropertyName = "EmpAddress";
-            this.empAddressDataGridViewTextBoxColumn.HeaderText = "EmpAddress";
-            this.empAddressDataGridViewTextBoxColumn.Name = "empAddressDataGridViewTextBoxColumn";
-            // 
-            // empCityDataGridViewTextBoxColumn
-            // 
-            this.empCityDataGridViewTextBoxColumn.DataPropertyName = "EmpCity";
-            this.empCityDataGridViewTextBoxColumn.HeaderText = "EmpCity";
-            this.empCityDataGridViewTextBoxColumn.Name = "empCityDataGridViewTextBoxColumn";
-            // 
-            // empPhoneDataGridViewTextBoxColumn
-            // 
-            this.empPhoneDataGridViewTextBoxColumn.DataPropertyName = "EmpPhone";
-            this.empPhoneDataGridViewTextBoxColumn.HeaderText = "EmpPhone";
-            this.empPhoneDataGridViewTextBoxColumn.Name = "empPhoneDataGridViewTextBoxColumn";
             // 
             // frmDelModEmp
             // 
@@ -291,8 +293,8 @@ namespace Employee_Database
             this.Text = "Delete/Modify Employee";
             this.Load += new System.EventHandler(this.frmDelModEmp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
