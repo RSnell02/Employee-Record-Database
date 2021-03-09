@@ -13,8 +13,6 @@ namespace Employee_Database
 {
     public partial class frmAddEmp : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=.; Initial Catalog = Employee; Integrated Security = true;");
-        SqlCommand cmd;
         SqlDataAdapter adapt;
         //ID variable used in Updating and Deleting Record
         int ID = 0;
@@ -40,6 +38,9 @@ namespace Employee_Database
         // Display Data in DataGridView
         private void DisplayData()
         {
+            string cn_string = Properties.Settings.Default.Database1ConnectionString;
+
+            SqlConnection con = new SqlConnection(cn_string);
             con.Open();
             DataTable dt = new DataTable();
             adapt = new SqlDataAdapter("Select * from Employee", con);
@@ -64,13 +65,20 @@ namespace Employee_Database
         {
             if (txtEmpFName.Text != "" && txtEmpLName.Text != "" && txtEmpAddress.Text != "" && txtEmpAddress.Text != "" && txtEmpPhone.Text != "")
             {
-                cmd = new SqlCommand("Insert into Employee values(@EmpFName, @EmpLName, @EmpAddress, @EmpCity, @EmpPhone", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@EmpFName", txtEmpFName.Text);
-                cmd.Parameters.AddWithValue("@EmpLName", txtEmpLName.Text);
-                cmd.Parameters.AddWithValue("@EmpAddress", txtEmpAddress.Text);
-                cmd.Parameters.AddWithValue("@EmpCity", txtEmpCity.Text);
-                cmd.Parameters.AddWithValue("@EmpPhone", txtEmpPhone.Text);
+                string cn_string = Properties.Settings.Default.Database1ConnectionString;
+
+                SqlConnection con = new SqlConnection(cn_string);
+                if (con.State != ConnectionState.Open) con.Open();
+
+                string empID = txtEmpNum.Text;
+                string empFName = txtEmpFName.Text;
+                string empLName = txtEmpLName.Text;
+                string empCity = txtEmpCity.Text;
+                string empAddress = txtEmpAddress.Text;
+                string empPhone = txtEmpPhone.Text;
+
+                string Query = "INSERT INTO EMPLOYEE(EmpID, EmpFName, EmpLName, EmpAddress, EmpCity, EmpPhone) values('" + empID + "', '" + empFName + "', '" + empLName + "', '" + empCity + "', '" + empAddress + "', '" + empPhone + "')";
+                SqlCommand cmd = new SqlCommand(Query, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Employee record added successfully");

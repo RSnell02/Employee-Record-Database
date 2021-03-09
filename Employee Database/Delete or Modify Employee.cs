@@ -9,8 +9,6 @@ namespace Employee_Database
 {
     public partial class frmDelModEmp : Form
     {
-        SqlConnection con = new SqlConnection("Data Source=.; Initial Catalog = Employee,; Integrated Security = true;");
-        SqlCommand cmd;
         SqlDataAdapter adapt;
         //ID variable used in Updating and Deleting Record
         int ID = 0;
@@ -38,6 +36,7 @@ namespace Employee_Database
 
         private void DisplayData()
         {
+            SqlConnection con = new SqlConnection();
             con.Open();
             DataTable dt = new DataTable();
             adapt = new SqlDataAdapter("select * from Employee", con);
@@ -60,45 +59,49 @@ namespace Employee_Database
         // Update Employee Record
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (txtEmpID.Text != "" && txtEmpFName.Text != "" && txtEmpLName.Text != "")
-            {
-                cmd = new SqlCommand("update Employee set FName = @EmpFName, LName = @EmpLName, Address = @EmpAddress, City = @EmpCity, Phone = @EmpPhone where EmpID = @EmpID", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@EmpID", ID);
-                cmd.Parameters.AddWithValue("@EmpFName", txtEmpFName.Text);
-                cmd.Parameters.AddWithValue("@EmpLName", txtEmpLName.Text);
-                cmd.Parameters.AddWithValue("@EmpAddress", txtEmpAddress.Text);
-                cmd.Parameters.AddWithValue("@EmpCity", txtEmpCity.Text);
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Record Updated Successfully");
-                con.Close();
-                DisplayData();
-                ClearData();
-            }   // End if
-            else
-            {
-                MessageBox.Show("Select an employee to update");
-            }   // End else
+            string cn_string = Properties.Settings.Default.Database1ConnectionString;
+            string Query = "update employ set EmpID ='" + this.txtEmpID.Text + "' , EmpFName = '" + this.txtEmpFName.Text + "' , EmpLName = '" + this.txtEmpLName.Text + "' , EmpAddress = '" + this.txtEmpAddress.Text + "' , EmpCity = '" + this.txtEmpCity.Text + "' , EmpPhone = '" + this.txtEmpPhone.Text + "';";
+
+            SqlConnection Con = new SqlConnection(cn_string);
+            SqlCommand Command = new SqlCommand(Query, Con);
+            SqlDataReader Reader;
+            Con.Open();
+            Reader = Command.ExecuteReader();
+            MessageBox.Show("Record Updated Successfully");
+            Con.Close();
+            DisplayData();
+            ClearData();
         }   // End btnUpdate_Click
 
         // Delete Employee Record
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if(ID!=0)
-            {
-                cmd = new SqlCommand("delete Employee where ID=@EmpID", con);
-                con.Open();
-                cmd.Parameters.AddWithValue("@EmpID", ID);
-                cmd.ExecuteNonQuery();
-                con.Close();
-                MessageBox.Show("Employee's data successfully deleted!");
-                DisplayData();
-                ClearData();
-            }   // End if
-            else
-            {
-                MessageBox.Show("Please select a record to delete");
-            }   // End else
+            string cn_string = Properties.Settings.Default.Database1ConnectionString;
+            string Query = "delete from item where EmpID='" + this.txtEmpID.Text + "';";
+            SqlConnection Con = new SqlConnection(cn_string);
+            SqlCommand Command = new SqlCommand(Query, Con);
+            SqlDataReader Reader;
+            Con.Open();
+            Reader = Command.ExecuteReader();
+            MessageBox.Show("Employee's data successfully deleted!");
+            DisplayData();
+            ClearData();
         }   // End btnDelete_Click
+
+
+        //Refreshes the table
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            string cn_string = Properties.Settings.Default.Database1ConnectionString;
+            // Refreshes table and fills table
+            string Query = "select * from employee;";
+            SqlConnection Con = new SqlConnection(cn_string);
+            SqlCommand Command = new SqlCommand(Query, Con);
+            SqlDataAdapter Adapter = new SqlDataAdapter();
+            Adapter.SelectCommand = Command;
+            DataTable dTable = new DataTable();
+            Adapter.Fill(dTable);
+            dataGridView1.DataSource = dTable;
+        }   // End btnRefresh_Click
     }   // End Class
 }   // End Namespace
